@@ -1,0 +1,62 @@
+﻿@using MDD4All.UI.BlazorComponents.Dialog
+@using MDD4All.UI.BlazorComponents.EnterpriseArchitect.ModelTree
+@using Microsoft.AspNetCore.Components.Web
+<div class="mainPanel">
+    <div class="titlePanel">
+        <strong>Enterprise Architect Object</strong>
+    </div>
+    <div class="connectionLabelPanel">Connection string:</div>
+    <div class="connectionStringPanel">
+        <input type="text"
+               style="width:100%;"
+               @bind-value="@DataContext.ConnectionString" />
+    </div>
+    <div class="connectionButtonPanel">
+        <button class="btn btn-light btn-sm"
+                @onclick="OnSelectFile">
+            ...
+        </button>
+    </div>
+    <div class="openButtonPanel">
+        <button class="btn btn-info"
+                style="color: white;"
+                @onclick="OnSelectEaElementClick"
+                disabled="@(!DataContext.ShowSelectionDialogCommand.CanExecute(null))">
+            Open and Select
+        </button>
+    </div>
+    <div class="statusPabel">
+        <span>Selected EA object: </span>
+        @if (DataContext.SelectedObject != null)
+        {
+            <strong>[@DataContext.SelectedObject.ObjectType] @DataContext.SelectedObject.Name @DataContext.SelectedObject.GUID</strong>
+        }
+        else
+        {
+            <span>&lt;Nothing selected&gt;</span>
+        }
+    </div>
+
+</div>
+
+@if (DataContext.ShowEaElementSelectionDialog)
+{
+
+    <ModalDialog CanConfirm="true"
+                 OnClose="OnSelctionDialogClose">
+        <div class="selectionDialogPanel">
+            @if (DataContext.RepositoryTreeViewModel == null)
+            {
+                <p>Loading...</p>
+            }
+            else
+            {
+                <EaModelTreeView DataContext="DataContext.RepositoryTreeViewModel" />
+            }
+        </div>
+    </ModalDialog>
+}
+
+
+
+

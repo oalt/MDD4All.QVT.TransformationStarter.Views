@@ -1,0 +1,22 @@
+﻿.mainPanel {
+    border: 1px solid darkgray;
+    padding: 5px;
+    margin-top: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+.checkHeaderPanel {
+    background-color: lightgray;
+}
+
+.enforceHeaderPanel {
+    background-color: lightcoral;
+}
+
+.primitiveHeaderPanel {
+    background-color: lightskyblue;
+}
+
+.contentPanel {
+    padding-top: 5px;
+}

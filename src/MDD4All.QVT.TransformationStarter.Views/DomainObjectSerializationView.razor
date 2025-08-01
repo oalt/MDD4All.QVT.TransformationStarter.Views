@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+<div class="mainPanel">
+    <div class="titlePanel">
+        <strong>New Object</strong>
+    </div>
+    <div class="formatPanel">
+        <span>Format for serialization:</span>
+
+        <input type="radio"
+               name="format"
+               value="JSON" 
+               id="jsonRadio"
+               checked="checked"
+               @onchange="@(args => OnFormatSelection(args, "JSON"))" />
+        <label for="jsonRadio">JSON</label>
+
+        <input type="radio"
+               name="format"
+               value="XML"
+               id="xmlRadio"
+               @onchange="@(args => OnFormatSelection(args, "XML"))">
+        <label for="xmlRadio">XML</label>
+    </div>
+
+    <div class="connectionLabelPanel">Filename:</div>
+    <div class="connectionStringPanel">
+        <input type="text"
+               style="width:100%;"
+               @bind-value="@DataContext.Filename" />
+    </div>
+    <div class="connectionButtonPanel">
+        <button class="btn btn-light btn-sm"
+                @onclick="OnSelectFileToSave">...</button>
+    </div>
+</div>
+
+
+

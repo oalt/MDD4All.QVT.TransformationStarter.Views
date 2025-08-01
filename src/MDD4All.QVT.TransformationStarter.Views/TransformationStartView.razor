@@ -1,0 +1,62 @@
+﻿@using System.Reflection
+@using MDD4All.QVT.TransformationStarter.ViewModels
+@using Microsoft.AspNetCore.Components.Web
+
+<div class="mainPanel">
+    <div class="transformationTitlePanel">
+        <h3>@TransformationViewModel.Name</h3>
+    </div>
+    <div class="transformationButtonPanel">
+        <button class="btn btn-danger"
+                disabled="@(!TransformationViewModel.ReadyToRunTransformation)"
+                @onclick="@(() => DataContext.RunTransformationCommand.Execute(null))">Start Transformation</button>
+    </div>
+
+    <div class="relationTitlePanel">
+        <h4>Top Relation: @TransformationViewModel.TopRelationName</h4>
+    </div>
+
+    <div class="domainPanel">
+
+        @foreach (PrimitiveDomainObjectViewModel primitiveDomainViewModel in TransformationViewModel.PrimitiveDomainViewModels)
+        {
+            <DomainAssignmentView DataContext="primitiveDomainViewModel">
+                <PrimitiveDomainView DataContext="primitiveDomainViewModel" />
+            </DomainAssignmentView>
+        }
+
+        @foreach (DomainObjectViewModel checkOnlyViewModel in TransformationViewModel.CheckOnlyViewModels)
+        {
+            if (checkOnlyViewModel is EaObjectSelectionViewModel)
+            {
+                <DomainAssignmentView DataContext="checkOnlyViewModel">
+                    <EaObjectSelectionView DataContext="(EaObjectSelectionViewModel)checkOnlyViewModel" />
+                </DomainAssignmentView>
+
+            }
+            else
+            {
+                <DomainAssignmentView DataContext="checkOnlyViewModel">
+
+                </DomainAssignmentView>
+            }
+        }
+
+        @foreach (DomainObjectViewModel enforceViewModel in TransformationViewModel.EnforceViewModels)
+        {
+            if (enforceViewModel is EaObjectSelectionViewModel)
+            {
+                <DomainAssignmentView DataContext="enforceViewModel">
+                    <EaObjectSelectionView DataContext="(EaObjectSelectionViewModel)enforceViewModel" />
+                </DomainAssignmentView>
+
+            }
+            else if (enforceViewModel is ObjectSerializationViewModel)
+            {
+                <DomainAssignmentView DataContext="enforceViewModel">
+                    <DomainObjectSerializationView DataContext="(ObjectSerializationViewModel)enforceViewModel" />
+                </DomainAssignmentView>
+            }
+        }
+    </div>
+</div>

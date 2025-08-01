@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.36" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\MDD4All.QVT.TransformationStarter.ViewModels\src\MDD4All.QVT.TransformationStarter.ViewModels\MDD4All.QVT.TransformationStarter.ViewModels.csproj" />
+    <ProjectReference Include="..\..\..\MDD4All.UI.BlazorComponents.EnterpriseArchitect\src\MDD4All.BlazorComponents.EnterpriseArchitect\MDD4All.UI.BlazorComponents.EnterpriseArchitect-dev.csproj" />
+    <ProjectReference Include="..\..\..\MDD4All.UI.BlazorComponents\src\MDD4All.UI.BlazorComponents\MDD4All.UI.BlazorComponents-dev.csproj" />
+  </ItemGroup>
+
+</Project>

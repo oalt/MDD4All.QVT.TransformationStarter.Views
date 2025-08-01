@@ -1,0 +1,50 @@
+﻿.mainPanel {
+    display: grid;
+    grid-template-columns: auto 1fr; auto;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.titlePanel {
+    grid-row: 1;
+    grid-column: 1 / span 3;
+}
+
+.connectionLabelPanel {
+    grid-row: 2;
+    grid-column: 1;
+    align-self: center;
+    padding-right: 5px;
+}
+
+.connectionStringPanel {
+    grid-row: 2;
+    grid-column: 2;
+    padding-right: 5px;
+    align-self: center;
+}
+
+.connectionButtonPanel {
+    grid-row: 2;
+    grid-column: 3;
+    align-self: center;
+}
+
+.openButtonPanel {
+    grid-row: 3;
+    grid-column: 1 / span 3;
+    place-self: center;
+}
+
+.statusPabel {
+    grid-column: 4;
+    grid-column: 1 / span 3;
+}
+
+.connectionStringTextField {
+    width: 100%;
+}
+
+.selectionDialogPanel {
+    height: calc(100vh - 300px);
+    overflow: auto;
+}

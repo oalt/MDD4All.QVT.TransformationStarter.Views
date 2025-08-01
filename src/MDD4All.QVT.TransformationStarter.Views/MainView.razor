@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+<div class="mainContainer">
+
+    <div class="topRow">
+        <img src="images/ModelTransformatorLogo.png"
+             height="50" />
+
+        
+
+        <strong>Transformation: @DescriptorProvider.TransformationDescriptor.TransformationName</strong>
+
+    </div>
+
+    <div class="contentPanel">
+        @switch (DataContext.ActiveViewState)
+        {
+            case ViewModels.ViewState.TransformationStart:
+                <TransformationStartView DataContext="DataContext" />
+                break;
+
+            case ViewModels.ViewState.TransformationRunning:
+                <TransformationRunningView />
+                break;
+        }
+    </div>
+
+    <div class="statusPanel">
+        @if (!string.IsNullOrEmpty(DataContext.StatusMessage))
+        {
+            <span>
+                @DataContext.StatusMessage
+            </span>
+        }
+    </div>
+
+
+</div>
+
+

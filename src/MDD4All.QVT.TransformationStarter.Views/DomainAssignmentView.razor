@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+<div class="mainPanel">
+    <div class="@HeaderPanelClass">
+        <table width="100%">
+
+            <tr>
+                <th @onclick="OnButtonClick"
+                    width="30">
+                    @if (!ShowUI)
+                    {
+                        <i class="bi bi-caret-right-fill"></i>
+                    }
+                    else
+                    {
+                        <i class="bi bi-caret-down-fill"></i>
+                    }
+                </th>
+                <th> 
+                    @DataContext.Title
+                </th>
+                <th width="20">
+                    <StatusIcon Status="DataContext.ReadyToRunTransformation" />
+                </th>
+            </tr>
+
+        </table>
+    </div>
+    <div class="contentPanel">
+        @if (ShowUI)
+        {
+            @ChildContent
+        }
+    </div>
+    
+</div>
