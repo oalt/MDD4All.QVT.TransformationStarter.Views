@@ -1,0 +1,35 @@
+﻿.mainPanel {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.titlePanel {
+    grid-row: 1;
+    grid-column: 1 / span 3;
+}
+
+.formatPanel {
+    grid-row: 2;
+    grid-column: 1 / span 3;
+}
+
+.connectionLabelPanel {
+    grid-row: 3;
+    grid-column: 1;
+    align-self: center;
+    padding-right: 5px;
+}
+
+.connectionStringPanel {
+    grid-row: 3;
+    grid-column: 2;
+    padding-right: 5px;
+    align-self: center;
+}
+
+.connectionButtonPanel {
+    grid-row: 3;
+    grid-column: 3;
+    align-self: center;
+}

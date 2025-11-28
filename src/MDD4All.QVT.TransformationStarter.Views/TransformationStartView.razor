@@ -34,10 +34,10 @@
                 </DomainAssignmentView>
 
             }
-            else
+            else if (checkOnlyViewModel is ObjectDeserializationViewModel)
             {
                 <DomainAssignmentView DataContext="checkOnlyViewModel">
-
+                    <ObjectDeserializationView DataContext="(ObjectDeserializationViewModel)checkOnlyViewModel" />
                 </DomainAssignmentView>
             }
         }
