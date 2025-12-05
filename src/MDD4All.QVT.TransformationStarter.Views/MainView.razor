@@ -21,6 +21,10 @@
             case ViewModels.ViewState.TransformationRunning:
                 <TransformationRunningView />
                 break;
+
+            case ViewModels.ViewState.TransformationFinished:
+                <TransformationFinishedView DataContext="DataContext" />
+                break;
         }
     </div>
 

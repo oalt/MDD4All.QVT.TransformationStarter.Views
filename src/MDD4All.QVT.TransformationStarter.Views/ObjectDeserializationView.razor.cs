@@ -10,6 +10,24 @@ namespace MDD4All.QVT.TransformationStarter.Views
 
         private string RadioButtonGroupGUID { get; set; } = Guid.NewGuid().ToString();
 
+        protected override void OnInitialized()
+        {
+            DataContext.PropertyChanged += OnPropertyChanged;
+        }
+
+        private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "FileSelectionResult")
+            {
+                if (DataContext.FileSelectionResult)
+                {
+                    DataContext.Filename = DataContext.SelectedFilename;
+
+                }
+                DataContext.RaisePropertyChanged("ReadyToRunTransformation");
+            }
+        }
+
         private void OnFormatSelection(ChangeEventArgs changeEventArgs, string format)
         {
 
