@@ -1,6 +1,5 @@
 using MDD4All.QVT.TransformationStarter.ViewModels;
 using Microsoft.AspNetCore.Components;
-using System.Threading;
 
 namespace MDD4All.QVT.TransformationStarter.Views
 {
@@ -8,6 +7,8 @@ namespace MDD4All.QVT.TransformationStarter.Views
     {
         [Parameter]
         public ObjectSerializationViewModel DataContext { get; set; }
+
+        private string RadioButtonGroupGUID { get; set; } = Guid.NewGuid().ToString();
 
         protected override void OnInitialized()
         {
@@ -30,7 +31,7 @@ namespace MDD4All.QVT.TransformationStarter.Views
         private void OnFormatSelection(ChangeEventArgs changeEventArgs, string format)
         {
             
-            DataContext.Format = changeEventArgs.Value.ToString();
+            DataContext.Format = changeEventArgs.Value?.ToString();
             
         }
 

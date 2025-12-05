@@ -1,13 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 <div class="mainPanel">
     <div class="titlePanel">
-        <strong>New Object</strong>
+        <strong>Existing Object</strong>
     </div>
     <div class="formatPanel">
         <span>Format for deserialization:</span>
 
         <input type="radio"
-               name="format"
+               name="@RadioButtonGroupGUID"
                value="JSON"
                id="jsonRadio"
                checked="checked"
@@ -15,7 +15,7 @@
         <label for="jsonRadio">JSON</label>
 
         <input type="radio"
-               name="format"
+               name="@RadioButtonGroupGUID"
                value="XML"
                id="xmlRadio"
                @onchange="@(args => OnFormatSelection(args, "XML"))">

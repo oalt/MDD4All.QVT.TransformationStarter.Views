@@ -8,10 +8,12 @@ namespace MDD4All.QVT.TransformationStarter.Views
         [Parameter]
         public ObjectDeserializationViewModel DataContext { get; set; }
 
+        private string RadioButtonGroupGUID { get; set; } = Guid.NewGuid().ToString();
+
         private void OnFormatSelection(ChangeEventArgs changeEventArgs, string format)
         {
 
-            DataContext.Format = changeEventArgs.Value.ToString();
+            DataContext.Format = changeEventArgs.Value?.ToString();
 
         }
 

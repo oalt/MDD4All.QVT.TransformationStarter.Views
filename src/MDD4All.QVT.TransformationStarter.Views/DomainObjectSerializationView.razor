@@ -7,7 +7,7 @@
         <span>Format for serialization:</span>
 
         <input type="radio"
-               name="format"
+               name="@RadioButtonGroupGUID"
                value="JSON" 
                id="jsonRadio"
                checked="checked"
@@ -15,7 +15,7 @@
         <label for="jsonRadio">JSON</label>
 
         <input type="radio"
-               name="format"
+               name="@RadioButtonGroupGUID"
                value="XML"
                id="xmlRadio"
                @onchange="@(args => OnFormatSelection(args, "XML"))">
