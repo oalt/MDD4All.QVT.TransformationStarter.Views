@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 <div class="mainPanel">
-    <h3>Transformation finished.</h3>
+    <h3>@L["Label.TransformationFinished"]</h3>
     <button class="btn btn-primary"
             @onclick="@(() => DataContext.ResetCommand.Execute(null))">
         Reset

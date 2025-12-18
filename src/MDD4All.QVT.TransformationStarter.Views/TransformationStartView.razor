@@ -1,5 +1,6 @@
 ﻿@using System.Reflection
 @using MDD4All.QVT.TransformationStarter.ViewModels
+@using MDD4All.UI.BlazorComponents.ErrorList
 @using Microsoft.AspNetCore.Components.Web
 
 <div class="mainPanel">
@@ -8,14 +9,22 @@
     </div>
     <div class="transformationButtonPanel">
         <button class="btn btn-danger"
-                disabled="@(!TransformationViewModel.ReadyToRunTransformation)"
-                @onclick="@(() => DataContext.RunTransformationCommand.Execute(null))">Start Transformation</button>
+                @onclick="@(() => DataContext.RunTransformationCommand.Execute(null))">► @L["Button.StartTransformation"]
+        </button>
     </div>
 
     <div class="relationTitlePanel">
         <h4>Top Relation: @TransformationViewModel.TopRelationName</h4>
     </div>
 
+    @if (DataContext.TransformationViewModel.Errors.Count > 0)
+    {
+        <div class="errorListPanel">
+            <ErrorListPanel DataContext="DataContext.TransformationViewModel" 
+                            ShowTitle=true
+                            EL="L"/>
+        </div>
+    }
     <div class="domainPanel">
 
         @foreach (PrimitiveDomainObjectViewModel primitiveDomainViewModel in TransformationViewModel.PrimitiveDomainViewModels)

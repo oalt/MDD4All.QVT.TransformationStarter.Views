@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -23,6 +23,51 @@
     <ProjectReference Include="..\..\..\MDD4All.QVT.TransformationStarter.ViewModels\src\MDD4All.QVT.TransformationStarter.ViewModels\MDD4All.QVT.TransformationStarter.ViewModels.csproj" />
     <ProjectReference Include="..\..\..\MDD4All.UI.BlazorComponents.EnterpriseArchitect\src\MDD4All.BlazorComponents.EnterpriseArchitect\MDD4All.UI.BlazorComponents.EnterpriseArchitect-dev.csproj" />
     <ProjectReference Include="..\..\..\MDD4All.UI.BlazorComponents\src\MDD4All.UI.BlazorComponents\MDD4All.UI.BlazorComponents-dev.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\DomainAssignmentView.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DomainAssignmentView.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\MainView.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MainView.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\TransformationFinishedView.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TransformationFinishedView.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\TransformationStartView.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TransformationStartView.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\DomainAssignmentView.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DomainAssignmentView.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\MainView.de.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\MainView.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainView.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\TransformationFinishedView.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TransformationFinishedView.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\TransformationStartView.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TransformationStartView.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

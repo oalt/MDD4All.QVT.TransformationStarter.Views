@@ -7,7 +7,7 @@
 
         
 
-        <strong>Transformation: @DescriptorProvider.TransformationDescriptor.TransformationName</strong>
+        <strong>@L["Label.Transformation"] @DescriptorProvider.TransformationDescriptor.TransformationName</strong>
 
     </div>
 
@@ -29,10 +29,10 @@
     </div>
 
     <div class="statusPanel">
-        @if (!string.IsNullOrEmpty(DataContext.StatusMessage))
+        @if (!string.IsNullOrEmpty(DataContext.StatusMessageTitle))
         {
             <span>
-                @DataContext.StatusMessage
+                @L[DataContext.StatusMessageTitle]
             </span>
         }
     </div>

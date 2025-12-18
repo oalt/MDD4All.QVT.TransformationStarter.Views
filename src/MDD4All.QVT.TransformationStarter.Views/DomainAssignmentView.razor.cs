@@ -1,11 +1,15 @@
 using LL.MDE.Components.Qvt.Common.DataModels;
 using MDD4All.QVT.TransformationStarter.ViewModels;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 
 namespace MDD4All.QVT.TransformationStarter.Views
 {
     public partial class DomainAssignmentView
     {
+        [Inject]
+        public IStringLocalizer<DomainAssignmentView> L { get; set; }
+
         [Parameter]
         public DomainObjectViewModel DataContext { get; set; }
 

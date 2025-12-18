@@ -16,7 +16,7 @@
                     }
                 </th>
                 <th> 
-                    @DataContext.Title
+                    @L["Label.Title", L[DataContext.DomainLocalizeTitle], DataContext.Parameter.Name, DataContext.Parameter.ParameterType]
                 </th>
                 <th width="20">
                     <StatusIcon Status="DataContext.ReadyToRunTransformation" />

@@ -1,10 +1,14 @@
 using MDD4All.QVT.TransformationStarter.ViewModels;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 
 namespace MDD4All.QVT.TransformationStarter.Views
 {
     public partial class ObjectDeserializationView
     {
+        [Inject]
+        public IStringLocalizer<DomainAssignmentView> L { get; set; }
+
         [Parameter]
         public ObjectDeserializationViewModel DataContext { get; set; }
 

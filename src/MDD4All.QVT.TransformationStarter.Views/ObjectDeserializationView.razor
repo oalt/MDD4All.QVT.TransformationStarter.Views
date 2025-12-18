@@ -1,10 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
 <div class="mainPanel">
     <div class="titlePanel">
-        <strong>Existing Object</strong>
+        <strong>@L["Label.ExistingObject"]</strong>
     </div>
     <div class="formatPanel">
-        <span>Format for deserialization:</span>
+        <span>@L["Label.DeserializationFormat"]</span>
 
         <input type="radio"
                name="@RadioButtonGroupGUID"
@@ -22,7 +22,7 @@
         <label for="xmlRadio">XML</label>
     </div>
 
-    <div class="connectionLabelPanel">Filename:</div>
+    <div class="connectionLabelPanel">@L["Label.Filename"]</div>
     <div class="connectionStringPanel">
         <input type="text"
                style="width:100%;"
