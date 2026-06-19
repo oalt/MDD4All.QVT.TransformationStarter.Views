@@ -31,6 +31,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>DomainAssignmentView.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resources\EaObjectSelectionView.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EaObjectSelectionView.resx</DependentUpon>
+    </Compile>
     <Compile Update="Resources\MainView.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -52,6 +57,10 @@
     <EmbeddedResource Update="Resources\DomainAssignmentView.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DomainAssignmentView.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\EaObjectSelectionView.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EaObjectSelectionView.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\MainView.de.resx">
       <Generator></Generator>

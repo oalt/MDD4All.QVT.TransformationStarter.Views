@@ -3,9 +3,9 @@
 @using Microsoft.AspNetCore.Components.Web
 <div class="mainPanel">
     <div class="titlePanel">
-        <strong>Enterprise Architect Object</strong>
+        <strong>@L["Label.EaObject"]</strong>
     </div>
-    <div class="connectionLabelPanel">Connection string:</div>
+    <div class="connectionLabelPanel">@L["Label.ConnectionString"]</div>
     <div class="connectionStringPanel">
         <input type="text"
                style="width:100%;"
@@ -17,23 +17,33 @@
             ...
         </button>
     </div>
+    <div class="keepModelOpenPanel form-check">
+        
+            <input class="form-check-input" 
+                   type="checkbox" 
+                   @bind=DataContext.KeepModelOpen
+                   id="checkDefault">
+            <label class="form-check-label" for="checkDefault">
+            @L["Label.KeepModelOpen"]
+            </label>
+    </div>
     <div class="openButtonPanel">
-        <button class="btn btn-info"
+        <button class="btn btn-primary"
                 style="color: white;"
                 @onclick="OnSelectEaElementClick"
                 disabled="@(!DataContext.ShowSelectionDialogCommand.CanExecute(null))">
-            Open and Select
+            @L["Button.OpenAndSelect"]
         </button>
     </div>
     <div class="statusPabel">
-        <span>Selected EA object: </span>
+        <span>@L["Label.SelectedEaObject"]</span>
         @if (DataContext.SelectedObject != null)
         {
             <strong>[@DataContext.SelectedObject.ObjectType] @DataContext.SelectedObject.Name @DataContext.SelectedObject.GUID</strong>
         }
         else
         {
-            <span>&lt;Nothing selected&gt;</span>
+            <span>&lt;@L["Label.NothingSelected"]&gt;</span>
         }
     </div>
 
@@ -45,13 +55,20 @@
     <ModalDialog CanConfirm="true"
                  OnClose="OnSelctionDialogClose">
         <div class="selectionDialogPanel">
-            @if (DataContext.RepositoryTreeViewModel == null)
+            @if(DataContext.ModelOpenErrorOccured)
             {
-                <p>Loading...</p>
+                <p style="color:red;"><strong>@L["Error.ModelOpening"]</strong></p>
             }
             else
             {
-                <EaModelTreeView DataContext="DataContext.RepositoryTreeViewModel" />
+                @if (DataContext.RepositoryTreeViewModel == null)
+                {
+                    <p>@L["Message.Loading"]</p>
+                }
+                else
+                {
+                    <EaModelTreeView DataContext="DataContext.RepositoryTreeViewModel" />
+                }
             }
         </div>
     </ModalDialog>

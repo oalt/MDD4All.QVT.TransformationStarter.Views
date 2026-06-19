@@ -1,12 +1,15 @@
 using MDD4All.FileAccess.Contracts;
 using MDD4All.QVT.TransformationStarter.ViewModels;
 using Microsoft.AspNetCore.Components;
-using System.Threading;
+using Microsoft.Extensions.Localization;
 
 namespace MDD4All.QVT.TransformationStarter.Views
 {
     public partial class EaObjectSelectionView
     {
+        [Inject]
+        public IStringLocalizer<EaObjectSelectionView> L { get; set; }
+
         [Inject]
         public IFileLoader FileLoader { get; set; }
 
